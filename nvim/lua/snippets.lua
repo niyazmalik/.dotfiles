@@ -132,27 +132,6 @@ ls.add_snippets("cpp", {
         })
     }),
 
-    s("psq", {
-        t({
-            "bool is_psq(int64_t n) {",
-            "      if (n < 0) return false;",
-            "      if (n == 0) return true;",
-            "",
-            "      int64_t l = 1, r = std::min(n, (int64_t)1e9);",
-            "      while (l <= r) {",
-            "            int64_t m = l + (r - l) / 2;",
-            "            int64_t sq = m * m;",
-            "            if (sq == n) return true;",
-            "            if (sq < n) l = m + 1;",
-            "            else r = m - 1;",
-            "      }",
-            "",
-            "      return false;",
-            "}",
-            "",
-        })
-    }),
-
     s("fen", {
         t({
             "struct Fenwick {",

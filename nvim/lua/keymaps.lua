@@ -16,7 +16,5 @@ vim.keymap.set("i", "<A-l>", "<Right>", { desc = "Move right" })
 vim.keymap.set('n', '<Tab>', '4l', { noremap = true })
 vim.keymap.set('n', '<S-Tab>', '4h', { noremap = true })
 
-vim.keymap.set('n', '<A-t>', ToggleTerminal, { noremap = true, silent = true })
-vim.keymap.set('t', '<A-t>', ToggleTerminal, { noremap = true, silent = true })
-
-vim.keymap.set({"n", "v"}, "<leader>c", toggle_comment, { desc = "Toggle // comment" })
+-- vim.keymap.set('n', '<A-t>', ToggleTerminal, { noremap = true, silent = true })
+-- vim.keymap.set('t', '<A-t>', ToggleTerminal, { noremap = true, silent = true })
