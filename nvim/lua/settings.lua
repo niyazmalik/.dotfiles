@@ -1,3 +1,13 @@
+vim.opt.hidden = true
+vim.opt.termguicolors = true
+
+-- Force black background
+vim.api.nvim_set_hl(0, 'Normal', { bg = '#000000' })
+vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#000000' })
+vim.api.nvim_set_hl(0, 'NormalNC', { bg = '#000000' })
+vim.api.nvim_set_hl(0, 'SignColumn', { bg = '#000000' })
+vim.api.nvim_set_hl(0, 'EndOfBuffer', { bg = '#000000' })
+
 -- Fix popup menu colors
 vim.api.nvim_set_hl(0, 'Pmenu', { bg = '#0b1542', fg = '#ffffff' })
 vim.api.nvim_set_hl(0, 'PmenuSel', { bg = '#414157', fg = '#ffffff' })
@@ -7,8 +17,8 @@ vim.api.nvim_set_hl(0, 'PmenuThumb', { bg = '#4a4a4a' })
 vim.opt.ruler = false
 
 -- UI settings
-vim.opt.number = false
-vim.opt.relativenumber = false
+vim.opt.number = true
+vim.opt.relativenumber = true
 vim.opt.laststatus = 0
 vim.opt.signcolumn = "no"
 vim.opt.scrolloff = 0
@@ -17,11 +27,8 @@ vim.opt.fillchars = { eob = " " }
 -- Disable bracket matching highlight
 vim.g.loaded_matchparen = 1
 
--- Clipboard
-vim.opt.clipboard = "unnamedplus"
-
 -- Left margin padding
-vim.opt.foldcolumn = "4"
+vim.opt.foldcolumn = "1"
 vim.cmd([[highlight FoldColumn guibg=NONE ctermbg=NONE]])
 
 -- Hide mode text and messages
@@ -94,3 +101,15 @@ vim.api.nvim_set_hl(0, 'FloatBorder', { fg = '#808080', bg = 'NONE' })
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+
+-- Netrw settings
+vim.g.netrw_banner = 0
+
+-- Netrw keymaps
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "netrw",
+    callback = function()
+        vim.keymap.set("n", "l", "<CR>", { buffer = true, remap = true })
+        vim.keymap.set("n", "h", "-", { buffer = true, remap = true })
+    end,
+})

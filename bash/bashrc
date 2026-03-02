@@ -1,0 +1,31 @@
+# ~/.bashrc
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+# Auto-start tmux
+if command -v tmux &>/dev/null && [ -z "$TMUX" ]; then
+    tmux attach || tmux new
+fi
+
+# History settings
+HISTCONTROL=ignoreboth:erasedups
+HISTSIZE=5000
+HISTFILESIZE=10000
+shopt -s histappend
+shopt -s checkwinsize
+shopt -u cdspell 2>/dev/null
+unset MAILCHECK
+
+# Load all config files
+for f in ~/.config/bash/*.sh; do source "$f"; done
+
+# Tool inits
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+export PATH="$HOME/.local/bin:$PATH"
+xset r rate 500 25
+eval "$(starship init bash)"

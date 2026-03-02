@@ -1,0 +1,5 @@
+alias bs='source ~/.bashrc'
+alias tv='nvim ~/.tmux.conf'
+alias ts='tmux source ~/.tmux.conf'
+alias av='nvim ~/.config/alacritty/alacritty.toml'
+alias sv='nvim ~/.config/starship.toml'
